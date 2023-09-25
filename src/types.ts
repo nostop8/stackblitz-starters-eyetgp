@@ -1,3 +1,5 @@
+import { Request } from "express";
+
 export type Product = {
   id: number;
   title: string;
@@ -18,7 +20,20 @@ export type CartPayload = {
   productId: number;
 };
 
-export type UserCredentials = {
+export type DummyUserCredentials = {
   username: string;
   password: string;
 };
+
+export type DummyCart = {
+  id?: number;
+  userId: number;
+  products: {
+    id: number;
+    quantity: number;
+  }[];
+};
+
+export interface RequestWithUser extends Request {
+  userId?: number;
+}
